@@ -44,6 +44,7 @@ cp= new piece("15px","courier","#ffffff",10,20,"text");
 ///////////////////////////////////////////////////////
 
 footarea=new piece(7,6,'',0,0);
+	r1e1=1;
 
 	house[0]=new piece(58,59,'house.png',80,-60,'img');
 	house[1]=new piece(58,59,'house.png',520,-160,'img');
