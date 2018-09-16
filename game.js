@@ -16,7 +16,7 @@ houserand[1]=0;
 houserand[1]=2;
 var roadel1=[];
 var roadel2=[];
-
+var newpoint;
 var velocity=1;
 var roadelements=['blocks.png',4,4,3,3,'grass.png',10,10,0,0];
 var r1generator;
@@ -44,8 +44,8 @@ cp= new piece("15px","courier","#ffffff",10,20,"text");
 ///////////////////////////////////////////////////////
 
 footarea=new piece(7,6,'',0,0);
-	r1e1=1;
-
+r1e1=1;
+newpoint=0;
 	house[0]=new piece(58,59,'house.png',80,-60,'img');
 	house[1]=new piece(58,59,'house.png',520,-160,'img');
 
@@ -89,13 +89,13 @@ function update(){
 			char1.speedY=velocity;
 	}
 
-	if(key('z'||key("y"))&&zarf.speedX==0){
+	if(key('z')||key("y"))&&zarf.speedX==0&&zarf.x==char1.x-4){
 		
 		zarf.speedX=-4*velocity;
 		
 	
 	}
-	if(key('x')&&zarf.speedX==0){
+	if(key('x')&&zarf.speedX==0&&zarf.x==char1.x-4){
 		
 			zarf.speedX=4*velocity;
 		
@@ -166,6 +166,8 @@ if(houserand[i]==1)
 	house[i].x=80;
 else house[i].x=520;}
 	
+	if(house[i].y>char1.y-20)
+	newpoint=0;
 
 house[i].update();
 house[i].value=1;
@@ -175,6 +177,8 @@ house[i].newPos();
 	if(zarfcol(house[i]))
 	{zarf.speedX=0;
      deliveries=deliveries+1;
+ newpoint=newpoint+1;
+	zarf.x=char1.x-4;
 
 
 }
